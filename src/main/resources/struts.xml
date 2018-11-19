@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+    
+<struts>
+<!--当struts文件修改后自动重新加载文件  -->
+<constant name="struts.devMode" value="true"/>
+<constant name="struts.objectFactory" value="spring" />
+<!-- 是否开启动态方法调用 -->
+<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+	<package name="book" extends="struts-default" namespace="/">
+			<!-- 允许全局零配置  dtd2.3改变了-->
+            <global-allowed-methods>regex:.*</global-allowed-methods>
+            
+			<action name="book_*" class="com.keystone.ssh.action.BookAction" method="{1}">
+				<result name="boo" >/WEB-INF/pages/book.jsp</result>
+			</action>
+			<action name="book1_*" class="com.keystone.ssh.action.BookAction" method="{1}">
+				<result name="boo" >/WEB-INF/pages/book.jsp</result>
+			</action>
+			
+			<action name="bo" class="com.keystone.ssh.action.BookAction" method="bo">
+				<result name="boo" >/WEB-INF/pages/book.jsp</result>
+			</action>
+			
+	</package>
+
+</struts>
